@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>music_app</title>
+    <!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+	<meta name="format-detection" content="telephone=no,email=no" />
+	<!--iphone设备中的safari私有meta标签，表示：允许全屏模式浏览-->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<!--iphone的私有标签，指定的iphone中safari顶端的状态条的样式-->
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+	<!-- 避免IE使用兼容模式 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+	<meta name="HandheldFriendly" content="true">
+  <!--引入的图标样式 -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- 防止手持双击击放大缩小 -->
+  <meta name="viewport" content="target-densitydpi=device-dpi,width=375px, user-scalable=no">
+  <meta name="qqmusic-set" content="share=0">
+  </head>
+  <script>
+     (function (doc, win, undefined) {
+          var docEl = doc.documentElement,
+            resizeEvt = 'orientationchange' in win? 'orientationchange' : 'resize',
+            recalc = function () {
+              var clientWidth = docEl.clientWidth;
+              if (clientWidth === undefined) return;
+              docEl.style.fontSize = 20 * (clientWidth / 320) + 'px';
+            };
+          if (doc.addEventListener === undefined) return;
+          win.addEventListener(resizeEvt, recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false)
+        })(document, window);
+  </script>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
